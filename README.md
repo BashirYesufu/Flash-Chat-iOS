@@ -47,3 +47,17 @@ struct K {
 }
 
 ```
+
+```
+# Code to Animate Text
+        titleLabel.text = ""
+        var charIndex = 0.0
+        let title = "⚡️FlashChat"
+        for text in title {
+            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { timer in
+                self.titleLabel.text?.append(text)
+                timer.invalidate()
+            }
+            charIndex += 1
+        }
+```
