@@ -20,7 +20,14 @@ class LoginViewController: UIViewController {
         if let email = emailTextfield.text,
            let password = passwordTextfield.text {
             Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-                guard let strongSelf = self else { return }
+                guard let self = self else { return }
+                if let e = error {
+                    let alert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                } else {
+                    self.performSegue(withIdentifier: "LoginToChat", sender: self)
+                }
             }
         }
     }

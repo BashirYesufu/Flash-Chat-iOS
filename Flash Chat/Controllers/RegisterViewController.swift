@@ -17,13 +17,13 @@ class RegisterViewController: UIViewController {
     @IBAction func registerPressed(_ sender: UIButton) {
         if let email = emailTextfield.text, let password = passwordTextfield.text {
             Auth.auth().createUser(withEmail: email, password: password) { [weak self] authResult, error in
-                guard let strongSelf = self else { return }
+                guard let self = self else { return }
                 if let e = error {
                     let alert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    strongSelf.present(alert, animated: true, completion: nil)
+                    self.present(alert, animated: true, completion: nil)
                 } else {
-                    strongSelf.performSegue(withIdentifier: "RegisterToChat", sender: self)
+                    self.performSegue(withIdentifier: "RegisterToChat", sender: self)
                 }
             }
         }
