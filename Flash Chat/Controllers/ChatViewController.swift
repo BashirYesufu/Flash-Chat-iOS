@@ -14,11 +14,7 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
     
-    var messages: [Message] = [
-        Message(sender: "1@2.com", body: "Hey!"),
-        Message(sender: "a@b.com", body: "Hello!"),
-        Message(sender: "1@2.com", body: "What's up?!")
-    ]
+    var messages: [Message] = []
     
     let db = Firestore.firestore()
     
@@ -30,6 +26,31 @@ class ChatViewController: UIViewController {
         title = K.appName
         navigationItem.hidesBackButton = true
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        loadMessages()
+    }
+    
+    func loadMessages() {
+        messages = []
+        
+        db.collection(K.FStore.collectionName).getDocuments { querySnapshot, error in
+            if let e = error {
+                K.displayErrorMessage(controller: self, message: e.localizedDescription)
+            } else {
+                if let snapshotDocument = querySnapshot?.documents {
+                    for doc in snapshotDocument {
+                        let data = doc.data()
+                        if let messageSender = data[K.FStore.senderField] as? String,
+                           let messageBody = data[K.FStore.bodyField] as? String {
+                            let newMessage = Message(sender: messageSender, body: messageBody)
+                            self.messages.append(newMessage)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func sendPressed(_ sender: UIButton) {
@@ -40,11 +61,9 @@ class ChatViewController: UIViewController {
                 K.FStore.bodyField: messageBody
             ]) { error in
                 if let e = error {
-                    let alert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
+                    K.displayErrorMessage(controller: self, message: e.localizedDescription)
                 } else {
-                    print("Saved successfully")
+                    self.messageTextfield.text = ""
                 }
             }
         }
@@ -55,9 +74,7 @@ class ChatViewController: UIViewController {
             try Auth.auth().signOut()
             navigationController?.popToRootViewController(animated: true)
         } catch let e as NSError {
-            let alert = UIAlertController(title: "Error", message: e.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            K.displayErrorMessage(controller: self, message: e.localizedDescription)
         }
     }
 }
