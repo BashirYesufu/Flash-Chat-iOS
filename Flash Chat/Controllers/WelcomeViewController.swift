@@ -17,6 +17,5 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
 
         titleLabel.text = K.appName
-
     }
 }
