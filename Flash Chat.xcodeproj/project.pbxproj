@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		040A43FA27932B4000C029B5 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A43F927932B4000C029B5 /* K.swift */; };
 		040A43FD27935EA500C029B5 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A43FC27935EA500C029B5 /* Message.swift */; };
+		040A44002794074500C029B5 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040A43FE2794074500C029B5 /* MessageCell.swift */; };
+		040A44012794074500C029B5 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040A43FF2794074500C029B5 /* MessageCell.xib */; };
 		0417769B278A3A3A00908E57 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0417769A278A3A3A00908E57 /* GoogleService-Info.plist */; };
 		0B628177235DEE8100E35CAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B628176235DEE8100E35CAF /* AppDelegate.swift */; };
 		0B628179235DEE8100E35CAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B628178235DEE8100E35CAF /* SceneDelegate.swift */; };
@@ -26,6 +28,8 @@
 /* Begin PBXFileReference section */
 		040A43F927932B4000C029B5 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		040A43FC27935EA500C029B5 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		040A43FE2794074500C029B5 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		040A43FF2794074500C029B5 /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		0417769A278A3A3A00908E57 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0B628173235DEE8100E35CAF /* Flash Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flash Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B628176235DEE8100E35CAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,7 +96,6 @@
 				0B628193235DF03400E35CAF /* Views */,
 				0B628192235DF02000E35CAF /* Controllers */,
 				0B62817F235DEE8400E35CAF /* Assets.xcassets */,
-				0B628181235DEE8400E35CAF /* LaunchScreen.storyboard */,
 				0B628184235DEE8400E35CAF /* Info.plist */,
 				0417769A278A3A3A00908E57 /* GoogleService-Info.plist */,
 				040A43F927932B4000C029B5 /* K.swift */,
@@ -114,7 +117,10 @@
 		0B628193235DF03400E35CAF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0B628181235DEE8400E35CAF /* LaunchScreen.storyboard */,
 				0B62817C235DEE8100E35CAF /* Main.storyboard */,
+				040A43FE2794074500C029B5 /* MessageCell.swift */,
+				040A43FF2794074500C029B5 /* MessageCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0B628183235DEE8400E35CAF /* LaunchScreen.storyboard in Resources */,
+				040A44012794074500C029B5 /* MessageCell.xib in Resources */,
 				0B628180235DEE8400E35CAF /* Assets.xcassets in Resources */,
 				0417769B278A3A3A00908E57 /* GoogleService-Info.plist in Resources */,
 				0B62819E235F0F4D00E35CAF /* README.md in Resources */,
@@ -261,6 +268,7 @@
 				040A43FD27935EA500C029B5 /* Message.swift in Sources */,
 				0B628191235DF01B00E35CAF /* ChatViewController.swift in Sources */,
 				0B62818D235DF00B00E35CAF /* RegisterViewController.swift in Sources */,
+				040A44002794074500C029B5 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
