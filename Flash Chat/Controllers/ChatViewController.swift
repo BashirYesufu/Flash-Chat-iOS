@@ -67,7 +67,9 @@ class ChatViewController: UIViewController {
                 if let e = error {
                     K.displayErrorMessage(controller: self, message: e.localizedDescription)
                 } else {
-                    self.messageTextfield.text = ""
+                    DispatchQueue.main.async {
+                        self.messageTextfield.text = ""
+                    }
                 }
             }
         }
