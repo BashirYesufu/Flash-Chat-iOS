@@ -23,41 +23,17 @@ Flash Chat is an internet based messaging app similar to WhatsApp, the popular m
 * How to create direct Segues for navigation.
 
 
-# Constants
-```
-struct K {
-    static let cellIdentifier = "ReusableCell"
-    static let cellNibName = "MessageCell"
-    static let registerSegue = "RegisterToChat"
-    static let loginSegue = "LoginToChat"
-    
-    struct BrandColors {
-        static let purple = "BrandPurple"
-        static let lightPurple = "BrandLightPurple"
-        static let blue = "BrandBlue"
-        static let lighBlue = "BrandLightBlue"
-    }
-    
-    struct FStore {
-        static let collectionName = "messages"
-        static let senderField = "sender"
-        static let bodyField = "body"
-        static let dateField = "date"
-    }
-}
-
-```
-
-```
-# Code to Animate Text
-        titleLabel.text = ""
-        var charIndex = 0.0
-        let title = "⚡️FlashChat"
-        for text in title {
-            Timer.scheduledTimer(withTimeInterval: 0.1 * charIndex, repeats: false) { timer in
-                self.titleLabel.text?.append(text)
-                timer.invalidate()
-            }
-            charIndex += 1
-        }
-```
+## Screenshots of the app
+<table>
+ <tr>
+  <td>
+   <img align="left" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/Flash-Chat-iOS/main/Documentation/image 1.png" width="400" height="600" />
+  </td>
+  <td>
+    <img align="center" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/Flash-Chat-iOS/main/Documentation/image 2.png" width="400" height="600" />
+  </td>
+   <td>
+    <img align="right" alt="IMG" src="https://raw.githubusercontent.com/BashirYesufu/Flash-Chat-iOS/main/Documentation/image 3.png" width="400" height="600" />
+  </td>
+ </tr>
+</table>
